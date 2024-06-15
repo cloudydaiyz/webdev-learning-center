@@ -24,7 +24,7 @@ The frontend code uses data from [The Movie Database](https://www.themoviedb.org
 Your frontend should be able to run now.
 
 ### Setting up the MongoDB database
-This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) as its database. In order to ensure it works properly, make an account and a database on MongoDB Atlas. You can follow the instructions found in the freeCodeCamp tutorial in order to help you with this.
+This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) as its database. In order to ensure it works properly, make an account and a database on MongoDB Atlas. You can follow [the instructions found in the freeCodeCamp tutorial](https://youtu.be/nu_pCVPKzTk?si=taTP4Tqjrz5ZvHng&t=21340) in order to help you with this.
 
 1. When choosing a connection method for your cluster, make sure to connect using the MongoDB Driver and save the connection string it gives you.
 
