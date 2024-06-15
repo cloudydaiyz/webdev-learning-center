@@ -16,7 +16,7 @@ NOTE: The frontend still works without the backend (including the search functio
 ## Running on your local dev environment
 ### Setting up the frontend
 The frontend code uses data from [The Movie Database](https://www.themoviedb.org/?language=en-US) (TMDB) in order to populate elements. In order to ensure the code works properly, make an account on TMDB and [obtain an api key](https://developer.themoviedb.org/reference/intro/getting-started).
-1. Create a file in the **movie-app** directory titled `secret.js`.
+1. Create a file in the `movie-app` directory titled `secret.js`.
 2. In `secret.js`, add this line of code:
 
 `const API_KEY = "YOUR TMDB API KEY HERE";`
