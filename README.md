@@ -1,4 +1,6 @@
 # webdev-learning-center
+![Static Badge](https://img.shields.io/badge/projects_completed-1-blue)
+
 Hello! 👋 
 
 This repository serves as a learning hub as I complete technical projects to reinforce my learning of web development. Currently, I'm prioritizing creating full stack applications (focusing on the frontend) in order to help develop my knowledge on creating nice, responsive web designs.
