@@ -1,5 +1,7 @@
-# 01-full-stack
-This project was created following [freeCodeCamp](https://www.youtube.com/watch?v=nu_pCVPKzTk).
+# 01-movie-search-app
+![Static Badge](https://img.shields.io/badge/completed-green)
+
+This project was created following [Full Stack Web Development for Beginners (Full Course on HTML, CSS, JavaScript, Node.js, MongoDB)](https://www.youtube.com/watch?v=nu_pCVPKzTk) by freeCodeCamp.
 
 `movie-app`: contains code for frontend
 
@@ -26,6 +28,8 @@ This project uses [MongoDB Atlas](https://www.mongodb.com/products/platform/atla
 
 1. When choosing a connection method for your cluster, make sure to connect using the MongoDB Driver and save the connection string it gives you.
 
+![example connection string](img/connection.png)
+
 2. In `reviews-api/index.js`, replace the string found in the URI variable with your connection string.
 
 ### Setting up the backend
@@ -43,6 +47,8 @@ In order to make sure the application is working, make sure your frontend, datab
 2. Run `npm start`.
 
 Now, whenever you open your frontend code, movies should be populated, and you should be able to properly add/update/delete reviews from each movie.
+
+![example of what landing page of app looks like](img/app.png)
 
 ## Purpose of completion
 The purpose of completing this project was for me to gain more experience developing full stack applications, specifically working on my frontend skills. This served as a good refresher on the fundamentals of HTML, CSS, and JS, and hopefully I can reinforce my knowledge moving forward before going back into using JavaScript frameworks such as React.
