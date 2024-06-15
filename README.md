@@ -7,7 +7,4 @@ If you want to get more context on the projects that I'm creating, navigate to t
 
 Skills used: HTML, CSS, JS, Node.js
 
-<img src="icons/html.svg" alt="html" width="50" height="50">
-<img src="icons/css.svg" alt="css" width="50" height="50">
-<img src="icons/js.svg" alt="js" width="50" height="50">
-<img src="icons/node-js.svg" alt="node.js" width="50" height="50">
+<img src="icons/html.svg" alt="html" width="50" height="50"> <img src="icons/css.svg" alt="css" width="50" height="50"> <img src="icons/js.svg" alt="js" width="50" height="50"> <img src="icons/node-js.svg" alt="node.js" width="50" height="50">
