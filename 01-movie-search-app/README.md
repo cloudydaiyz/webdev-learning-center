@@ -3,13 +3,13 @@
 
 This project was created following [Full Stack Web Development for Beginners (Full Course on HTML, CSS, JavaScript, Node.js, MongoDB)](https://www.youtube.com/watch?v=nu_pCVPKzTk) by freeCodeCamp.
 
-`movie-app`: contains code for frontend
+`movie-app` contains code for frontend
 
-`reviews-api`: contains code for the Express backend and interactivity with MongoDB database
+`reviews-api` contains code for the Express backend and interactivity with MongoDB database
 
 ## Overview
 
-This project is a full stack movie search app, with the frontend using HTML, CSS, and JS, and the backend using Node.js, express.js, and MongoDB. The frontend allows for the user to search for movies in TMDB, and add/edit/remove reviews to individual movies stored using this app's backend.
+This project is a full stack movie search app, with the frontend using HTML, CSS, and JS, and the backend using Node.js and MongoDB. The frontend allows for the user to search for movies in TMDB and add/edit/remove reviews to individual movies. The backend is a server hosted using express.js that allows for adding/editing/removing reviews for TMDB movies, and storing the reviews in MongoDB.
 
 NOTE: The frontend still works without the backend (including the search functionality), but will be unable to generate information for reviews.
 
@@ -60,5 +60,6 @@ There were not too many challenges with this project since it mainly included fo
 If I come back to this project in the future, some additional things I'd want to add is:
 - Better styling across the frontend
 - Testing for the frontend using Playwright
+- Add a testing collection in Postman for the backend
 - Converting the backend to a simple TS app
 - Adding IaC functionality to the app using Terraform in order to deploy the frontend via S3, and the backend running either on AWS Lambda or EC2
