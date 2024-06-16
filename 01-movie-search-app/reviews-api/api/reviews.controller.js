@@ -1,4 +1,4 @@
-import ReviewsDAO from "../dao/reviewsDAO.js";
+import ReviewsDAO from "../dao/reviews.dao.js";
 
 export default class ReviewsController {
     // endpoint: /new | body: movieId, review, user
