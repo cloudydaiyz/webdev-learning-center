@@ -1,0 +1,58 @@
+body {
+    background-color: #1d2326;
+    color: #f5deb3;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+p {
+    color: #a0a0a0;
+}
+
+button {
+    all: unset;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    border-color: #f5deb3;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+a {
+    color: #f5deb3;
+}
+
+.hidden-content {
+    display: none;
+}
+
+.output {
+    float: left;
+    width: 60%;
+}
+
+.actions {
+    float: left;
+    width: 30%;
+}
+
+div.actions {
+    border-left-style: solid;
+    height: 1000px;
+    margin-bottom: 10px;
+}
+
+div.output, div.actions {
+    padding-left: 40px;
+}
+
+span.actions {
+    width: 200px;
+    text-align: center;
+}
+
+span.actions * {
+    margin: 10px 0px;
+}

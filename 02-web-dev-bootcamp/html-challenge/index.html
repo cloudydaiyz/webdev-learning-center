@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="output">
+        <h2>Output</h2>
+        <span>
+            <h3>Programmer memes</h3>
+            <img class="hidden-content" src="https://www.exodus.com/img/news/content/2022/11/flat-550x550-075-f.u1.jpg" alt="randomly generated meme" id="meme" width="256" height="256">
+        </span>
+        <span>
+            <h3>Tell me something funny!</h3>
+            <p class="hidden-content" id="joke">The best thing about a Boolean is even if you are wrong, you are only off by a bit.</p>
+        </span>
+        <span>
+            <h3>Give me some wisdom...</h3>
+            <p class="hidden-content" id="wisdom">Insightful wisdom</p>
+            <p class="hidden-content" id="wisdom-author">- Wisdom author</p>
+        </span>
+        <span>
+            <h3>I want a riddle!</h3>
+            <p class="hidden-content" id="riddle">Question</p>
+            <p class="hidden-content" id="riddle-answer">Riddle answer</p>
+        </span>
+    </div>
+    <div class="actions">
+        <h2>Actions</h2>
+        <span class="actions">
+            <button class="meme" onclick="showMeme()">Show a Meme</button><br>
+            <button class="joke" onclick="showJoke()">Tell Me a Joke</button><br>
+            <button class="quote" onclick="showQuote()">Random Quote</button><br>
+            <button class="riddle" onclick="showRiddle()">Riddle me</button><br>
+            <div><a href="#" onclick="showRiddleAnswer()">Reveal Riddle Answer</a></div>
+        </span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
