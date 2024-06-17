@@ -45,6 +45,8 @@ button {
 }
 
 #bottom-section {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 55%;
     color: white;
@@ -52,17 +54,14 @@ button {
 
 #bottom-left-section {
     vertical-align: top;
-    display: inline-block;
-    width: 50%;
+    flex-basis: 50%;
     height: 100%;
     background-color: #2ab2af;
     padding: 25px;
 }
 
 #bottom-right-section {
-    vertical-align: top;
-    display: inline-block;
-    width: 50%;
+    flex-basis: 50%;
     height: 100%;
     background-color: #6bbbbc;
     padding: 25px;
@@ -92,17 +91,17 @@ button {
     margin-bottom: 15px;
 }
 
-#price-frequency, #price {
-    display: inline-block;
+#price {
+    margin-right: 5px;
 }
 
 #price-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 #price-frequency {
-    position: relative;
-    top: -3px;
     opacity: 0.7;
     margin-left: 5px;
 }
@@ -138,6 +137,11 @@ button:hover {
     html, button {
         font-size: 20px;
     }
+
+    #bottom-section {
+        flex-direction: column;
+    }
+
     #bottom-left-section, #bottom-right-section, #card {
         width: 100%;
         height: auto;
