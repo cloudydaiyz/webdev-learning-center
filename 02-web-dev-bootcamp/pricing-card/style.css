@@ -2,6 +2,7 @@ html {
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
     font-size: 16px;
+    background-color: #e8eff5;
 }
 
 *, *:before, *:after {
@@ -134,7 +135,7 @@ button:hover {
 }
 
 @media (max-width: 750px) {
-    html {
+    html, button {
         font-size: 20px;
     }
     #bottom-left-section, #bottom-right-section, #card {

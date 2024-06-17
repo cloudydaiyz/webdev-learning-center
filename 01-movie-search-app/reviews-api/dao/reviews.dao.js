@@ -1,4 +1,4 @@
-import mongodb from "mongodb"
+import mongodb from "mongodb";
 const ObjectId = mongodb.ObjectId;
 
 // reviews Collection inside the reviews Database
