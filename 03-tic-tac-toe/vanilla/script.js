@@ -138,5 +138,4 @@ const App = {
     }
 }
 
-// window NOT document
 window.addEventListener("load", App.init());
