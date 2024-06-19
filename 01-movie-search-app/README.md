@@ -54,7 +54,7 @@ Now, whenever you open your frontend code, movies should be populated, and you s
 The purpose of completing this project was for me to gain more experience developing full stack applications, specifically working on my frontend skills. This served as a good refresher on the fundamentals of HTML, CSS, and JS, and hopefully I can reinforce my knowledge moving forward before going back into using JavaScript frameworks such as React.
 
 ## Challenges encountered
-There were not too many challenges with this project since it mainly included following the tutorial. However, the tutorial did divert a bit when it came to using MongoDB Atlas, since they used Replit as their local environment rather than VS Code (what I used). It required a bit of adjustment on my end (as seen in the *Setting up the backend* section).
+There were not too many challenges with this project since it mainly included following the tutorial. However, the tutorial did divert a bit when it came to using MongoDB Atlas, since they used Replit as their local environment rather than VS Code (what I used). It required a bit of adjustment on my end (as seen in the *Setting up the MongoDB database* section).
 
 ## Next items
 If I come back to this project in the future, some additional things I'd want to add is:
