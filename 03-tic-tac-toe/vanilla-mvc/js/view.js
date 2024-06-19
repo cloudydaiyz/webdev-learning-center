@@ -18,6 +18,7 @@ export default class View {
         this.$.p1Wins = this.#qs('[data-id="p1-stats"]');
         this.$.p2Wins = this.#qs('[data-id="p2-stats"]');
         this.$.ties = this.#qs('[data-id="ties"]');
+        this.$.grid = this.#qs('[data-id="grid"]');
 
         this.$$.squares = this.#qsAll('[data-id="square"]');
 
@@ -64,9 +65,7 @@ export default class View {
     }
 
     bindPlayerMoveEvent(handler) {
-        this.$$.squares.forEach((square) => {
-            square.addEventListener('click', () => handler(square));
-        });
+        this.#delegate(this.$.grid, '[data-id="square"', 'click', handler);
     }
 
     /** 
@@ -167,5 +166,16 @@ export default class View {
         if(!el) throw new Error('Could not find elements');
 
         return el;
+    }
+
+    // to make sure we don't have to add event listeners for all the squares, 
+    // helps with performance
+    // well known pattern when working with the DOM
+    #delegate(el, selector, eventKey, handler) {
+        el.addEventListener(eventKey, (event) => {
+            if(event.target.matches(selector)) {
+                handler(event.target);
+            }
+        });
     }
 }

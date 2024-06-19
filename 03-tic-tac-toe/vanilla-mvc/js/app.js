@@ -23,7 +23,10 @@ function init() {
     const view = new View();
     const store = new Store('live-t3-storage-key', players);
 
-    console.log(store.game);
+    // When current tab state changes
+    store.addEventListener('statechange', () => {
+        view.render(store.game, store.stats);
+    });
 
     // Update the view if the storage is updated from another tab -- this allows 
     // for people to play on multiple tabs
@@ -32,16 +35,15 @@ function init() {
         view.render(store.game, store.stats);
     });
 
+    // First load of the document
     view.render(store.game, store.stats);
 
     view.bindGameResetEvent(event => {
         store.reset();
-        view.render(store.game, store.stats);
     });
 
     view.bindNewRoundEvent(event => {
         store.newRound();
-        view.render(store.game, store.stats);
     });
 
     view.bindPlayerMoveEvent(square => {
@@ -53,9 +55,6 @@ function init() {
 
         // Advance to the next state by pushing a move to the moves array
         store.playerMove(+square.id);
-
-        // Set the next player's turn indicator
-        view.render(store.game, store.stats);
     });
 }
 
