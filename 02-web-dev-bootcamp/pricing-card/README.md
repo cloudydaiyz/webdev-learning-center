@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [My solution URL](https://www.frontendmentor.io/solutions/single-price-grid-component-m0RCLOw5Y0)
+- Live Site URL: [My live site URL](https://cloudydaiyz.github.io/webdev-learning-center/02-web-dev-bootcamp/pricing-card)
 
 ## My process
 
@@ -59,7 +59,7 @@ If I were to continue this project in the future, some things I would add are:
 
 ## Author
 
-- Website - [Add your name here](https://www.cloudydaiyz.com)
+- Website - [Kylan Duncan](https://www.cloudydaiyz.com)
 - Frontend Mentor - [@cloudydaiyz](https://www.frontendmentor.io/profile/cloudydaiyz)
 
 ## Acknowledgments
