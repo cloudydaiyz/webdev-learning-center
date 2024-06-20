@@ -1,5 +1,5 @@
 # webdev-learning-center
-![Static Badge](https://img.shields.io/badge/projects_completed-3-blue)
+![Static Badge](https://img.shields.io/badge/projects_completed-5-blue)
 
 Hello! 👋 
 
