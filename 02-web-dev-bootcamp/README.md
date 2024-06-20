@@ -20,6 +20,6 @@ I didn't experience too many errors whenever I created these projects, since I m
 
 ## Next items
 If I come back to these projects in the future, some additional things I'd want to add are:
-- Redo my `htm-mini-challenge`
+- Redo my `html-mini-challenge`
 - Redo the `testimonials-grid-section` using CSS grid
 - Add CSS animations to the Frontend Mentor challenges
