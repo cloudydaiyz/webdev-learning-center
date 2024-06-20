@@ -50,7 +50,8 @@ Users should be able to:
 ### Continued development
 
 If I were to continue this project in the future, some things I would add are:
-- 
+- CSS Grid layout
+- CSS animations for the button
 
 ### Useful resources
 
