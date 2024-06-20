@@ -11,7 +11,7 @@ Skills used: HTML, CSS, JS, Node.js, Typescript
 
 <img src="icons/html.svg" alt="html" width="50" height="50"> <img src="icons/css.svg" alt="css" width="50" height="50"> <img src="icons/js.svg" alt="js" width="50" height="50"> <img src="icons/node-js.svg" alt="node.js" width="50" height="50"> <img src="icons/typescript.svg" alt="typescript" width="50" height="50">
 
-## Directory
+## Project Directory
 
 View the hosted website [here](http://github.cloudydaiyz.com/webdev-learning-center/)!
 
