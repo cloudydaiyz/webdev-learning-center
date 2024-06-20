@@ -1,5 +1,5 @@
 # 01-movie-search-app
-![Static Badge](https://img.shields.io/badge/completed-green)
+![Completed Badge](https://img.shields.io/badge/completed-green)
 
 This project was created following [Full Stack Web Development for Beginners (Full Course on HTML, CSS, JavaScript, Node.js, MongoDB)](https://www.youtube.com/watch?v=nu_pCVPKzTk) by freeCodeCamp.
 
