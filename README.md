@@ -7,6 +7,6 @@ This repository serves as a learning hub as I complete technical projects to rei
 
 For more context on the projects that I'm creating, navigate to the directories of each individual project! 
 
-Skills used: HTML, CSS, JS, Node.js
+Skills used: HTML, CSS, JS, Node.js, Typescript
 
 <img src="icons/html.svg" alt="html" width="50" height="50"> <img src="icons/css.svg" alt="css" width="50" height="50"> <img src="icons/js.svg" alt="js" width="50" height="50"> <img src="icons/node-js.svg" alt="node.js" width="50" height="50"> <img src="icons/typescript.svg" alt="typescript" width="50" height="50">
