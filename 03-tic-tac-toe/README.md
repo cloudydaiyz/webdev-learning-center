@@ -18,6 +18,19 @@ The purpose of completing this project was to go through the full workflow of cr
 ## Challenges encountered
 I experienced some trouble in the beginning getting my layout correct on desktop. Even though the video used a CSS reset, I ended up removing some of my CSS reset since the box-border property caused some of my DOM elements to be improperly positioned on the page. Other than that, there weren't too many other challenges with this project; mainly lots of new insights.
 
+## Lessons Learned
+Some of the things I learned while completing this project includes:
+- Applying knowledge about CSS Grid
+- CSS Reset is NOT always the solution
+- Using variables for colors
+- *VERY* basic animations
+- Even though you’ll have majority of CSS in the document, sometimes it’s quick and convenient to have a quick style in the HTML
+- There’s differences between the window and document (use window for events, use document for the DOM)
+- Instead of keeping track of game board, keep track of the moves (the state)
+- Use classes to keep track of styles that’ll be changed later programmatically
+
+Even though I learned tons good web design concepts, I did feel like some parts were being overengineered a bit.
+
 ## Next steps
 - Refactor the project using React
 - Add a backend to the app for a multiplayer mode
