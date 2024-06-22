@@ -3,18 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth App</title>
 
-    <!-- Poppins font -->
+    <!-- Poppins and Inter fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/f027ff6638.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Growth Landing Page</title>
 </head>
 <body>
-    
-    <script src="main.js"></script>
+    <nav>
+        <span class="logo">
+            <h1>Growth</h1>
+            <img src="images/icon.svg" alt="">
+        </span>
+        <span class="links">
+            <a href="#" class="mobile-hidden">Features</a>
+            <a href="#" class="mobile-hidden">About Us</a>
+            <a href="#" class="mobile-hidden">Blog</a>
+            <button class="login secondary-s mobile-hidden">Log in</button>
+            <button class="dropdown secondary-s desktop-hidden"><i class="fa-solid fa-caret-down"></i></button>
+        </span>
+    </nav>
+    <main>
+        <div class="hero">
+            <h2>A powerful solution to grow your startup. Fast!</h2>
+            <h3>Organise, collaborate, and track progress seamlessly with our one-stop-shop startup growth tool.</h3>
+            <span>
+                <button class="primary">Get started</button>
+                <button class="secondary"><i class="fa-solid fa-book"></i>&nbsp;Book a demo</button>
+            </span>
+            <div class="examples">
+                <div class="team">
+                    <div class="team-info">
+                        <h4>Team Capodopera</h2>
+                        <p>Grow the number of clients and reach the 1000/day sales.</p>
+                        <div class="hl"></div>
+                        <img src="images/team-capodopera-pfp.svg" alt="Profile pictures of Team Capodopera">
+                    </div>
+                    <img src="images/team-capodopera-img.svg" alt="Example graph of Team Capodopera">
+                </div>
+                <div class="growth">
+                    <h4>Growth</h4>
+                </div>
+                <div class="person">
+                    <img src="images/lady-img.svg" alt="Image of a lady">
+                    <div><i class="fa-solid fa-microphone"></i></div>
+                </div>
+                <div class="call">
+                    <h4>Team call</h4>
+                    <p>You’ve been invited to a virtual meeting by John</p>
+                    <h4>Jan 17 at 9AM</h4>
+                    <button class="primary-s">Join</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

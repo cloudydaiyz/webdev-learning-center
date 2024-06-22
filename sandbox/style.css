@@ -1,6 +1,23 @@
 body {
     height: 100vh;
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #1F0802;
+}
+
+div {
+    border-color: #1F0802;
+    border-radius: 5px;
+    border-width: 3px;
+    border-style: solid;
+    padding: 30px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,9 +32,11 @@ button {
     height: 40px;
     font-size: 1.5rem;
     border-radius: 5px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    margin: 10px;
 
-    transition-property: background-color, color;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    transition-property: background-color, color, transform, box-shadow;
     transition-duration: 0.2s;
 }
 
@@ -25,4 +44,20 @@ button:hover {
     background-color: #38184C;
     color: #A0CD60;
     cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+    transform: translate(-4px, -4px);
+}
+
+button i {
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+
+button:hover i.arrow {
+    transform: rotate(90deg);
+}
+
+button:hover i.circle {
+    /* transform: scale(1.1); */
+    transform: rotate(180deg);
 }

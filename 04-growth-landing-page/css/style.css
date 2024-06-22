@@ -1,0 +1,109 @@
+body {
+    margin-left: 96px;
+    margin-right: 96px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+span.logo {
+    display: flex;
+}
+
+span.logo h1 {
+    width: fit-content;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+span.links {
+    /* float: right; */
+    /* justify-self: flex-end; */
+    margin-left: auto;
+}
+
+span.links > * {
+    margin-left: 10px;
+}
+
+span.links a {
+    text-decoration: none;
+    color: var(--almost-black);
+}
+
+span.links a:hover {
+    text-decoration: underline;
+}
+
+div.hero h2 {
+    font-size: 64px;
+    font-weight: 500;
+    width: 65%;
+    line-height: 74px;
+    margin-bottom: 20px;
+}
+
+div.hero h3 {
+    font-size: 20px;
+    font-weight: 300;
+    width: 50%;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+
+div.hero span button {
+    margin-right: 15px;
+}
+
+/* Example divs */
+div.team {
+    width: fit-content;
+    padding: 30px;
+
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: #DFDEE2;
+
+    display: flex;
+}
+
+div.team div.team-info {
+    display: flex;
+    flex-direction: column;
+}
+
+div.team-info h4 {
+    margin: 0px;
+    margin-bottom: 10px;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.team-info p {
+    margin: 0px;
+
+    font-size: 10px;
+    font-weight: 300;
+}
+
+div.team-info img {
+    margin-top: 10px;
+}
+
+/* UTILITY CLASSES */
+div.hl {
+    width: 100%;
+    /* height: 1px; */
+
+    border-top: 1px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+
+    border-style: solid;
+    border-color: #DFDEE2;
+}

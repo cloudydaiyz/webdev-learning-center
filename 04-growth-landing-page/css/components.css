@@ -1,0 +1,209 @@
+:root {
+    --blue: #4891FF;
+    --white: #FFFFFF;
+    --dark-blue: #1570F9;
+    --almost-black: #131316;
+    --almost-white: #EDEFF7;
+    --gray: #BEBDC6;
+    --dark-gray: #605E6D;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+button, input.primary {
+    /* height: 48px; */
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-style: none;
+    border-radius: 15px;
+
+    font-family: 'Poppins', sans-serif;
+
+    transition-property: background-color, color, box-shadow, transform;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+button.primary {
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+button.primary:hover {
+    background-color: var(--dark-blue);
+}
+
+button.secondary {
+    background-color: #F5F5F5;
+    color: var(--almost-black);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+button.secondary:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+button.primary-s, input.primary {
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button.primary-s:hover, input.primary:hover {
+    background-color: var(--dark-blue);
+}
+
+button.secondary-s {
+    background-color: #F5F5F5;
+    color: var(--almost-black);
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button.secondary-s:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:fit-content;
+}
+
+input {
+    background-color: var(--almost-white);
+    border-color: var(--gray);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--dark-gray);
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+input:hover {
+    border-color: #8E8D94;
+}
+
+input:active {
+    border-color: var(--blue);
+}
+
+input.primary:hover {
+    cursor: pointer;
+}
+
+div.tab {
+    background-color: #F4F4F6;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+div.tab button {
+    background-color: transparent;
+    color: var(--almost-black);
+}
+
+div.tab button.unselected:hover {
+    background-color: #DBE7F9;
+    box-shadow: none;
+}
+
+div.tab button.selected {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+button.media {
+    border-radius: 50%;
+    height: fit-content;
+    width: 50px;
+    height: 50px;
+}
+
+button.media:hover {
+    box-shadow: none;
+    transform: scale(1.2);
+}
+
+div.links {
+    display: flex;
+    flex-direction: column;
+}
+
+div.links a {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #131316;
+}
+
+div.links a, div.links a i {
+    transition-property: color, transform;
+    transition-duration: 0.3s;
+}
+
+div.links a:hover, div.links a:hover i {
+    color: #1570F9;
+}
+
+div.links a:hover i {
+    transform: rotate(-90deg);
+}
+
+/* For media buttons */
+button.media.play i.fa-play {
+    display: block;
+}
+
+button.media.play i.fa-pause {
+    display: none;
+}
+
+button.media.pause i.fa-play {
+    display: none;
+}
+
+button.media.pause i.fa-pause {
+    display: block;
+}
+
+/* UTILITY CLASSES */
+.hidden {
+    display: none;
+}
+
+.desktop-hidden {
+    display: none;
+}
+
+@media (max-width: 490px) {
+    .mobile-hidden {
+        display: none;
+    }
+
+    .desktop-hidden {
+        display: initial;
+    }
+}

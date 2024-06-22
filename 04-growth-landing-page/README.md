@@ -1,2 +1,2 @@
 # growth-landing-page
-Landing page for Growth website from iCodeThis
+Landing page for Growth website from iCodeThis challenge
