@@ -34,6 +34,7 @@ span.logo h1 {
     width: fit-content;
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 28px;
 }
 
 span.logo img {
@@ -95,7 +96,8 @@ div.hero img.examples {
     position: relative;
     top: -96px;
     width: 100%;
-    min-width: 840px;
+    /* min-width: 840px; */
+    max-width: 100%;
     z-index: 0;
 }
 
@@ -377,6 +379,7 @@ div.faq div.tab button {
 
 div.faq div.questions {
     margin-bottom: 96px;
+    width: 100%;
 }
 
 div.questions div.qa {
@@ -430,7 +433,8 @@ div.qa div.answer {
 }
 
 div.qa.active div.answer {
-    height: auto;
+    /* height: fit-content; */
+    height: 108px;
 }
 
 div.answer p {
@@ -443,6 +447,115 @@ div.answer p {
 footer {
     background-color: var(--black);
     color: var(--white);
+    padding-left: 85px;
+    padding-top: 108px;
+    padding-bottom: 40px;
+}
+
+footer span.logo {
+    margin-bottom: 48px;
+}
+
+footer div.midsection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+
+    margin-bottom: 48px;
+    max-width: 100%;
+}
+
+div.midsection div.newsletter {
+    background-color: var(--almost-white);
+    color: var(--almost-black);
+    border-radius: 15px;
+    padding: 24px;
+    margin-right: 24px;
+
+    width: 400px;
+}
+
+div.newsletter h3 {
+    margin: 0px;
+    margin-bottom: 8px;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+
+    color: var(--almost-black);
+    opacity: 0.95;
+}
+
+div.newsletter p {
+    margin: 0px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+
+    color: var(--almost-black);
+}
+
+div.midsection div.links {
+    gap: 20px;
+}
+
+div.links p {
+    color: var(--almost-white);
+    margin: 0px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+div.midsection div.links a {
+    color: var(--almost-white);
+    opacity: 0.7;
+    margin: 0px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+div.midsection div.links a:hover {
+    color: var(--almost-white);
+    opacity: 1;
+}
+
+footer span.brands a {
+    color: var(--almost-white);
+    font-size: 24px;
+    margin-right: 4px;
+
+    opacity: 0.7;
+    transition-property: opacity;
+    transition-duration: 3s;
+}
+
+span.brands a:hover {
+    opacity: 1;
+}
+
+footer > p {
+    margin: 0px;
+    margin-top: 64px;
+
+    color: var(--almost-white);
+    opacity: 0.7;
+
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 150%;
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
 }
 
 /* ************* */
