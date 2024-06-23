@@ -1,11 +1,29 @@
+* {
+    z-index: 0;
+}
+
 body {
-    margin-left: 96px;
-    margin-right: 96px;
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    margin-top: 64px;
 }
 
 nav {
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
+    position: fixed;
+    top: 0px;
+    padding: 10px;
+    padding-left: 96px;
+    padding-right: 96px;
     align-items: center;
+    background-color: var(--white);
+
+    z-index: 5;
 }
 
 span.logo {
@@ -18,9 +36,13 @@ span.logo h1 {
     margin-bottom: 0px;
 }
 
+span.logo img {
+    position: relative;
+    top: -10px;
+    left: 5px;
+}
+
 span.links {
-    /* float: right; */
-    /* justify-self: flex-end; */
     margin-left: auto;
 }
 
@@ -37,11 +59,21 @@ span.links a:hover {
     text-decoration: underline;
 }
 
+div.hero {
+    padding-left: 96px;
+    padding-right: 96px;
+
+    /* 50 - 96 px to account for the offset of div.hero img.examples */
+    padding-bottom: -46px;  
+}
+
 div.hero h2 {
     font-size: 64px;
     font-weight: 500;
     width: 65%;
     line-height: 74px;
+
+    margin-top: 160px;
     margin-bottom: 20px;
 }
 
@@ -54,50 +86,57 @@ div.hero h3 {
 }
 
 div.hero span button {
+    position: relative;
+    z-index: 3;
     margin-right: 15px;
 }
 
-/* Example divs */
-div.team {
-    width: fit-content;
-    padding: 30px;
-
-    border-style: solid;
-    border-radius: 20px;
-    border-width: 1px;
-    border-color: #DFDEE2;
-
-    display: flex;
+div.hero img.examples {
+    position: relative;
+    top: -96px;
+    width: 100%;
+    min-width: 840px;
+    z-index: 0;
 }
 
-div.team div.team-info {
+div.hero img.examples-mobile {
+    margin-top: 40px;
+    width: 100%;
+}
+
+div.video {
+    background-color: #000000;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 96px;
+    padding-right: 96px;
 }
 
-div.team-info h4 {
-    margin: 0px;
-    margin-bottom: 10px;
-
-    font-size: 20px;
+div.video h2 {
+    font-size: 48px;
     font-weight: 500;
+    width: 65%;
+    line-height: 64px;
+    margin-top: 96px;
+
+    color: white;
+    text-align: center;
 }
 
-div.team-info p {
-    margin: 0px;
-
-    font-size: 10px;
-    font-weight: 300;
+div.video > button.primary {
+    margin-top: 64px;
+    margin-bottom: 96px;
 }
 
-div.team-info img {
-    margin-top: 10px;
+div.video div.preview {
+    position: relative;
 }
 
-/* UTILITY CLASSES */
 div.hl {
     width: 100%;
-    /* height: 1px; */
 
     border-top: 1px;
     border-right: 0px;
@@ -106,4 +145,325 @@ div.hl {
 
     border-style: solid;
     border-color: #DFDEE2;
+}
+
+div.preview button.media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25px, -25px);
+}
+
+div.preview button.media:hover {
+    transform: translate(-25px, -25px) scale(1.2);
+}
+
+div.preview img {
+    max-width: 100%;
+}
+
+div.testimonials {
+    background-color: #000000;
+    color: var(--white);
+
+    padding-top: 96px;
+    padding-left: 96px;
+    padding-right: 96px;
+}
+
+div.testimonials > h2 {
+    margin-top: 0px;
+    margin-bottom: 64px;
+
+    font-size: 48px;
+    font-weight: 500;
+    width: 65%;
+    line-height: 64px;
+}
+
+div.testimonials div.testimonial-container {
+    display: flex;
+    overflow: scroll;
+    width: 100%;
+    gap: 20px;
+
+    padding-bottom: 96px;
+}
+
+div.testimonial-container div.testimonial {
+    background-color: var(--white);
+    color: var(--almost-black);
+    padding: 40px;
+    border-radius: 15px;
+
+    height: fit-content;
+    flex: 0 0 300px;
+}
+
+div.testimonial * {
+    margin: 0px;
+}
+
+div.testimonial .quote {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 150%;
+    font-weight: 300;
+    margin-bottom: 48px;
+}
+
+div.testimonial .author {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+div.testimonial .team {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+div.pricing {
+    background-color: var(--white);
+    color: var(--black);
+    text-align: center;
+
+    padding-top: 96px;
+    padding-left: 96px;
+    padding-right: 96px;
+}
+
+div.pricing > h2 {
+    margin-top: 0px;
+    margin-bottom: 36px;
+
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+div.pricing > p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+div.pricing div.links {
+    margin-top: 16px;
+    margin-bottom: 72px;
+}
+
+div.pricing span.pricing-models {
+    margin-top: 64px;
+    margin-bottom: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+span.pricing-models > div {
+    border-radius: 15px;
+    padding: 56px;
+    max-width: 400px;
+    text-align: left;
+}
+
+span.pricing-models > div h3 {
+    margin-top: 0px;
+    margin-bottom: 16px;
+
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+span.pricing-models > div p {
+    margin-bottom: 32px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+span.pricing-models span.price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    
+    margin-bottom: 24px;
+}
+
+span.pricing-models span.price * {
+    margin: 0px;
+    margin-right: 8px;
+}
+
+span.pricing-models div.simple {
+    background-color: #FAFAFA;
+}
+
+span.pricing-models div.premium {
+    background-color: var(--black);
+    color: var(--almost-white);
+}
+
+span.pricing-models div.benefits {
+    margin-top: 32px;
+}
+
+div.benefits {
+    margin-bottom: 32px;
+}
+
+div.benefits p {
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+div.benefits span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+div.benefits span i {
+    position: relative;
+    top: 5px;
+}
+
+div.benefits span p {
+    margin: 0px;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
+span.pricing-models button.primary.get-started {
+    width: 100%;
+}
+
+div.faq {
+    background-color: var(--white);
+    color: var(--black);
+
+    padding-top: 96px;
+    padding-left: 96px;
+    padding-right: 96px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.faq h2 {
+    margin-top: 0px;
+    margin-bottom: 42px;
+
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+div.faq div.tab {
+    margin-bottom: 108px;
+}
+
+div.faq div.tab button {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+div.faq div.questions {
+    margin-bottom: 96px;
+}
+
+div.questions div.qa {
+    padding: 0px;
+    border-bottom: 1px solid #DFDEE2;
+
+    transition-property: border-color;
+    transition-duration: 0.3s;
+}
+
+div.questions div.qa.active {
+    border-color: var(--dark-gray);
+}
+
+div.qa div.question {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    line-height: 150%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+div.qa h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0px;
+}
+
+div.qa img {
+    margin: 2px;
+    margin-left: 24px;
+
+    transition-property: transform;
+    transition-duration: 0.3s;
+}
+
+div.qa.active img {
+    transform: rotate(45deg);
+}
+
+div.qa div.answer {
+    padding: 0px;
+    margin: 0px;
+    overflow: clip;
+    height: 0px;
+
+    transition-property: height;
+    transition-duration: 0.3s;
+}
+
+div.qa.active div.answer {
+    height: auto;
+}
+
+div.answer p {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0px;
+    margin-bottom: 48px;
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* ************* */
+/* MEDIA QUERIES */
+/* ************* */
+
+/* Tablet styles */
+@media (max-width: 860px) {
+    div.hero img.examples {
+        display: none;
+    }
+
+    div.hero img.examples-mobile {
+        display: initial;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 490px) {
+    body {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }

@@ -92,9 +92,9 @@ See how it works and get started in less than 2 minutes
 
 [ Get started ]
 
-Don't just take our word for it, see the success stories from businesses just like yours.
-
 # Testimonials
+
+Don't just take our word for it, see the success stories from businesses just like yours.
 
 “Our business has seen a significant increase in productivity since we started using the Growth app.”
 Katherine Smith

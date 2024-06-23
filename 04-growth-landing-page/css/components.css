@@ -1,6 +1,7 @@
 :root {
     --blue: #4891FF;
     --white: #FFFFFF;
+    --black: #000000;
     --dark-blue: #1570F9;
     --almost-black: #131316;
     --almost-white: #EDEFF7;
@@ -102,6 +103,10 @@ input {
     font-weight: 300;
 }
 
+input.text {
+    margin-right: 10px;
+}
+
 input:hover {
     border-color: #8E8D94;
 }
@@ -118,6 +123,7 @@ div.tab {
     background-color: #F4F4F6;
     width: fit-content;
     border-radius: 15px;
+    padding: 10px;
 }
 
 div.tab button {
@@ -156,6 +162,7 @@ div.links a {
     font-family: 'Inter', 'Poppins', sans-serif;
     font-weight: 500;
     text-decoration: none;
+    line-height: 150%;
     color: #131316;
 }
 
@@ -174,19 +181,19 @@ div.links a:hover i {
 
 /* For media buttons */
 button.media.play i.fa-play {
-    display: block;
+    display: none;
 }
 
 button.media.play i.fa-pause {
-    display: none;
+    display: block;
 }
 
 button.media.pause i.fa-play {
-    display: none;
+    display: block;
 }
 
 button.media.pause i.fa-pause {
-    display: block;
+    display: none;
 }
 
 /* UTILITY CLASSES */

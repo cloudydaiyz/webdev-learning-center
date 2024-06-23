@@ -31,12 +31,12 @@ button {
     width: 300px;
     height: 40px;
     font-size: 1.5rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin: 10px;
 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
-    transition-property: background-color, color, transform, box-shadow;
+    transition-property: background-color, color, transform, box-shadow, border-radius;
     transition-duration: 0.2s;
 }
 
@@ -45,6 +45,13 @@ button:hover {
     color: #A0CD60;
     cursor: pointer;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+}
+
+button.round:hover {
+    border-radius: 15px;
+}
+
+button.popout:hover {
     transform: translate(-4px, -4px);
 }
 
@@ -60,4 +67,13 @@ button:hover i.arrow {
 button:hover i.circle {
     /* transform: scale(1.1); */
     transform: rotate(180deg);
+}
+
+p {
+    transition-property: visibility;
+    transition-duration: 0.3s;
+}
+
+.hidden {
+    visibility: hidden;
 }
