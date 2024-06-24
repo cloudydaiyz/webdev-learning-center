@@ -1,39 +1,28 @@
-# growth-landing-page
-
-
-# 03-growth-landing-page
+# 04-growth-landing-page
 ![Completed Badge](https://img.shields.io/badge/completed-green)
 
-This project was created for the Growth website Landing page from iCodeThis challenge
-
-`vanilla` contains the code for the pure HTML, CSS, and JS version of the project
-
-`vanilla-mvc` contains the code for the pure HTML, CSS, and JS version of the project, but refactored using ES6 modules and the MVC paradigm with JS
-
-`typescript` contains the code for the Typescript refactor of the project
+This project was created for the Growth website Landing page from iCodeThis challenge.
 
 ## Overview
-This project is a game of tic tac toe, created using 3 different times -- once using vanilla JS, another using vanilla JS with the MVC pattern, and lastly using Typescript. 
+This project is a responsive landing page for a fake company called Growth. It was made using HTML, CSS, and vanilla JS, and only contains functionality for components.
 
 ## Purpose of completion
-The purpose of completing this project was to go through the full workflow of creating a fully functional app in HTML, CSS, and JS. It also ended up helping me gain experience refactoring frontend code for better design patterns after having to refactor it twice. Even though I've created a project previously in Typescript, I've never refactored vanilla JS code into Typescript code, and it ended up being easier than I thought it'd be.
+The purpose of completing this project was to go through the full workflow of creating a website in HTML, CSS, and JS without following a tutorial. It allowed me to find my own workflow for completing the project, based on the principles of frontend development I developed by completing previous projects.
 
 ## Challenges encountered
-I experienced some trouble in the beginning getting my layout correct on desktop. Even though the video used a CSS reset, I ended up removing some of my CSS reset since the box-border property caused some of my DOM elements to be improperly positioned on the page. Other than that, there weren't too many other challenges with this project; mainly lots of new insights.
+The main challenge I had doing this project was during the beginning. Even though I was used to creating frontend projects by now because of the tutorials I followed, I wasn't completely sure on how I should begin, especially with the styles. I wanted my CSS code to be concise in the beginning, so if certain properties were being repeated among certain elements, I wanted to catch them as I was initially styling the page rather than when I was refactoring. Whenever I cared a bit less about doing this for my intial styling, the project became faster and more entertaining to work on.
 
 ## Lessons Learned
 Some of the things I learned while completing this project includes:
-- Applying knowledge about CSS Grid
-- CSS Reset is NOT always the solution
-- Using variables for colors
-- *VERY* basic animations
-- Even though you’ll have majority of CSS in the document, sometimes it’s quick and convenient to have a quick style in the HTML
-- There’s differences between the window and document (use window for events, use document for the DOM)
-- Instead of keeping track of game board, keep track of the moves (the state)
-- Use classes to keep track of styles that’ll be changed later programmatically
-
-Even though I learned tons good web design concepts, I did feel like some parts were being overengineered a bit.
+- You don’t have to do mobile-first. If doing desktop-first is better for you, then go ahead.
+- Although it’s helpful to have media queries generalized for each device type, it’s not required. If it makes sense for an element to have its own query, just use it.
+- Be more specific to select the item you want!
+- There is no justify-self for Flexbox
+- Even though I learned tons good web design concepts, I did feel like some parts were being overengineered a bit.
 
 ## Next steps
-- Refactor the project using React
-- Add a backend to the app for a multiplayer mode
+If I were to continue this project, some things I would do would be:
+- Refactor the project, making the CSS more concise
+- Adding additional pages to the website
+- Adding more transitions when hovering over certain divs (e.g. testimonials)
+- Ensuring all functionality on the page works
