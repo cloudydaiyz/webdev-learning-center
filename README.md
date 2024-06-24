@@ -21,4 +21,4 @@ For the individual projects:
 3. [Pricing card](https://github.cloudydaiyz.com/webdev-learning-center/02-web-dev-bootcamp/pricing-card/)
 4. [Testimonials grid section](https://github.cloudydaiyz.com/webdev-learning-center/02-web-dev-bootcamp/testimonials-grid-section)
 5. [Tic tac toe](https://github.cloudydaiyz.com/webdev-learning-center/03-tic-tac-toe/vanilla-mvc)
-6. [Growth landing page](https://github.cloudydaiyz.com/webdev-learning-center/02-web-dev-bootcamp/04-growth-landing-page)
+6. [Growth landing page](https://github.cloudydaiyz.com/webdev-learning-center/04-growth-landing-page)
