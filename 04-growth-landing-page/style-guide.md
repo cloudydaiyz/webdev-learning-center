@@ -161,18 +161,45 @@ All
 Getting started
 Pricing
 
-How does the contact management feature help me keep track of clients and partners?
-Keep track of your contacts, gain valuable insights, analyse live data and performance metrics.
+Q: How does the contact management feature help me keep track of clients and partners? (Getting Started)
+A: The contact management feature helps you organize and store all your client and partner information in one place. You can track interactions, set reminders for follow-ups, and gain insights into your relationships through detailed analytics.
 
-Can I customize the dashboards and reporting feature to display the metrics that are most important to my business?
+Q: Can I customize the dashboards and reporting feature to display the metrics that are most important to my business? (Getting Started)
+A: Yes, the dashboards and reporting features are fully customizable. You can select which metrics to display, set up custom reports, and create visualizations that highlight the data most relevant to your business goals.
 
-How does the task management feature help me delegate tasks to my team and track progress?
+Q: How does the task management feature help me delegate tasks to my team and track progress? (Getting Started)
+A: The task management feature allows you to assign tasks to team members, set deadlines, and track progress in real-time. You can also prioritize tasks, add notes, and receive notifications when tasks are updated or completed.
 
-Can I collaborate with my team in real-time using all tools?
+Q: Can I collaborate with my team in real-time using all tools? (Getting Started)
+A: Yes, our app includes real-time collaboration tools such as messaging, video conferencing, and document sharing. This ensures that your team can work together seamlessly, no matter where they are located.
 
-Is the app available on all devices?
+Q: Is the app available on all devices? (Getting Started)
+A: Yes, the app is available on all devices, including desktops, tablets, and smartphones. This allows you to stay connected and manage your business from anywhere.
 
-How does the app help me stay compliant when working with freelancers and contractors?
+Q: How does the app help me stay compliant when working with freelancers and contractors? (Getting Started)
+A: The app provides tools to manage contracts, track payments, and ensure that all legal and compliance requirements are met when working with freelancers and contractors. This helps you stay organized and reduces the risk of non-compliance.
+
+Pricing
+Q: What are the differences between the free and premium plans? (Pricing)
+A: The free plan includes essential features such as contact management, real-time monitoring, task scheduling, and basic analytics. The premium plan, priced at $49 per month, adds advanced features like data-driven decision-making tools, enhanced data visualization, and real-time communication tools for messaging and video conferencing.
+
+Q: Are there any setup fees or hidden costs? (Pricing)
+A: No, there are no setup fees or hidden costs. Our pricing is transparent, and you only pay the monthly subscription fee for the premium plan. All features included in the plan are available without additional charges.
+
+Q: Can I switch plans at any time? (Pricing)
+A: Yes, you can switch between the free and premium plans at any time. Upgrading or downgrading your plan is straightforward and can be done through your account settings. Any changes in billing will be prorated accordingly.
+
+Q: Do you offer any discounts for annual subscriptions? (Pricing)
+A: Yes, we offer a discount for annual subscriptions. If you choose to pay annually, you can save up to 20% compared to the monthly subscription rate. This option is available during the checkout process.
+
+Q: Is there a trial period for the premium plan? (Pricing)
+A: Yes, we offer a 14-day free trial for the premium plan. This allows you to explore all the advanced features and determine if the premium plan meets your business needs before making a commitment.
+
+Q: What payment methods do you accept? (Pricing)
+A: We accept all major credit cards, including Visa, MasterCard, American Express, and Discover. Additionally, we support PayPal and direct bank transfers for annual subscriptions.
+
+Q: What happens if I cancel my subscription? (Pricing)
+A: If you cancel your subscription, you will retain access to the premium features until the end of your current billing period. After that, your account will revert to the free plan, and you will lose access to any premium features. You can resubscribe at any time.
 
 # Footer
 

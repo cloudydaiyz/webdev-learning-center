@@ -7,6 +7,13 @@ body {
     padding: 0px;
 }
 
+@media (max-width: 490px) {
+    body {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
 main {
     margin-top: 64px;
 }
@@ -103,7 +110,72 @@ div.hero img.examples {
 
 div.hero img.examples-mobile {
     margin-top: 40px;
+    margin-bottom: 32px;
     width: 100%;
+}
+
+@media (max-width: 910px) {
+    div.hero img.examples {
+        display: none;
+    }
+
+    div.hero img.examples-mobile {
+        display: initial;
+    }
+}
+
+@media (max-width: 720px) {
+    div.hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.hero h2, div.hero h3  {
+        width: 100%;
+        text-align: center;
+    }
+
+    div.hero span {
+        width: 100%;
+        text-align: center;
+    }
+
+    div.hero span button {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    span.links .mobile-hidden {
+        display: none;
+    }
+
+    span.links .desktop-hidden {
+        display: initial;
+    }
+}
+
+@media (max-width: 540px) {
+    nav {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    div.hero {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    div.hero h2 {
+        margin-top: 56px;
+        font-size: 36px;
+        line-height: 110%;
+    }
+
+    div.hero h3 {
+        font-size: 18px;
+    }
 }
 
 div.video {
@@ -162,6 +234,34 @@ div.preview button.media:hover {
 
 div.preview img {
     max-width: 100%;
+}
+
+@media (max-width: 720px) {
+    div.video h2 {
+        width: 100%;
+    }
+
+    div.preview img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    div.video {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    div.video h2 {
+        margin-top: 64px;
+        font-size: 32px;
+        line-height: 120%;
+        margin-bottom: 40px;
+    }
+
+    div.video > button.primary {
+        width: 100%;
+    }
 }
 
 div.testimonials {
@@ -223,6 +323,38 @@ div.testimonial .author {
 div.testimonial .team {
     font-size: 16px;
     font-weight: 300;
+}
+
+@media (max-width: 720px) {
+    div.testimonials > h2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    div.testimonials {
+        padding-top: 64px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    div.testimonials > h2 {
+        font-size: 32px;
+        line-height: 120%;
+        margin-bottom: 40px;
+    }
+
+    div.testimonials div.testimonial-container {
+        overflow: initial;
+        flex-direction: column;
+        padding-bottom: 64px;
+    }
+
+    div.testimonial-container div.testimonial {
+        box-sizing: border-box;
+        flex-basis: auto;
+        width: 100%;
+    }
 }
 
 div.pricing {
@@ -345,6 +477,20 @@ span.pricing-models button.primary.get-started {
     width: 100%;
 }
 
+@media (max-width: 850px) {
+    div.pricing span.pricing-models {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 540px) {
+    div.pricing {
+        padding-top: 64px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
 div.faq {
     background-color: var(--white);
     color: var(--black);
@@ -362,6 +508,7 @@ div.faq h2 {
     margin-top: 0px;
     margin-bottom: 42px;
 
+    text-align: center;
     font-size: 48px;
     font-weight: 500;
     line-height: 120%;
@@ -434,7 +581,7 @@ div.qa div.answer {
 
 div.qa.active div.answer {
     /* height: fit-content; */
-    height: 108px;
+    height: 164px;
 }
 
 div.answer p {
@@ -442,6 +589,14 @@ div.answer p {
     font-weight: 300;
     margin: 0px;
     margin-bottom: 48px;
+}
+
+@media (max-width: 540px) {
+    div.faq {
+        padding-top: 64px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
 footer {
@@ -499,7 +654,14 @@ div.newsletter p {
     color: var(--almost-black);
 }
 
-div.midsection div.links {
+div.midsection div.all-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+}   
+
+div.all-links div.links {
     gap: 20px;
 }
 
@@ -512,7 +674,7 @@ div.links p {
     line-height: 120%;
 }
 
-div.midsection div.links a {
+div.all-links div.links a {
     color: var(--almost-white);
     opacity: 0.7;
     margin: 0px;
@@ -522,7 +684,7 @@ div.midsection div.links a {
     line-height: 120%;
 }
 
-div.midsection div.links a:hover {
+div.all-links div.links a:hover {
     color: var(--almost-white);
     opacity: 1;
 }
@@ -553,30 +715,33 @@ footer > p {
     line-height: 150%;
 }
 
+@media (max-width: 720px) {
+    footer {
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    footer {
+        padding-left: 16px;
+    }
+
+    div.midsection {
+        flex-direction: column;
+    }
+
+    div.midsection div.newsletter {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    div.midsection div.all-links {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
 /* Utility classes */
 .hidden {
     display: none;
-}
-
-/* ************* */
-/* MEDIA QUERIES */
-/* ************* */
-
-/* Tablet styles */
-@media (max-width: 860px) {
-    div.hero img.examples {
-        display: none;
-    }
-
-    div.hero img.examples-mobile {
-        display: initial;
-    }
-}
-
-/* Mobile styles */
-@media (max-width: 490px) {
-    body {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
 }

@@ -124,6 +124,10 @@ div.tab {
     width: fit-content;
     border-radius: 15px;
     padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 div.tab button {
