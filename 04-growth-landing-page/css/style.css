@@ -597,6 +597,10 @@ div.answer p {
         padding-left: 16px;
         padding-right: 16px;
     }
+
+    div.qa.active div.answer {
+        height: 264px;
+    }
 }
 
 footer {
