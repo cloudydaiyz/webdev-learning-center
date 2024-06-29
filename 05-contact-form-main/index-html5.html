@@ -15,7 +15,7 @@
     .attribution { font-size: 14px; text-align: center; margin-top: 16px; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-html5.css">
 </head>
 <body>
 
@@ -27,27 +27,27 @@
     <p>Thanks for completing the form. We'll be in touch soon!</p>
   </div>
 
-  <div class="contact-form" id="contact-form">
+  <div class="contact-form">
     <h1>Contact Us</h1>
 
-    <form action="" id="main-form">
+    <form action="">
       <!-- First name, last name, email -->
       <div class="name">
         <div class="first-name">
           <label for="first-name">First Name <p class="required">*</p></label>
-          <input type="text" name="first-name" id="first-name" aria-required="true">
+          <input type="text" name="first-name" id="first-name" required aria-required="true">
           <p class="error-message">This field is required</p>
         </div>
         <div class="last-name" >
           <label for="last-name">Last Name <p class="required">*</p></label>
-          <input type="text" name="last-name" id="last-name" aria-required="true">
+          <input type="text" name="last-name" id="last-name" required aria-required="true">
           <p class="error-message">This field is required</p>
         </div>
       </div>
 
       <div class="email">
         <label for="email">Email Address <p class="required">*</p></label>
-        <input type="text" name="email" id="email" aria-required="true">
+        <input type="email" name="email" id="email" required aria-required="true">
         <!-- Please enter a valid email address -->
         <p class="error-message">Please enter a valid email address</p>
       </div>
@@ -57,7 +57,7 @@
         <h4 class="label">Query Type <p class="required">*</p></h4>
         <div class="query-options">
           <div class="option">
-            <input type="radio" name="query-type" id="enquiry" value="enquiry" aria-required="true">
+            <input type="radio" name="query-type" id="enquiry" value="enquiry" required aria-required="true">
             <img src="assets/images/icon-radio-selected.svg" alt="Radio button selected" class="radio-selected">
             <label for="enquiry">General Enquiry</label>
           </div>
@@ -73,21 +73,21 @@
       <!-- Message -->
       <div class="message">
         <label for="message">Message <p class="required">*</p></label>
-        <textarea name="message" id="message" aria-required="true"></textarea>
+        <textarea name="message" id="message" required aria-required="true"></textarea>
         <p class="error-message">This field is required</p>
       </div>
 
       <!-- Consent to contact -->
       <div class="contact-consent-container">
         <div class="contact-consent">
-          <input type="checkbox" name="contact-consent" id="contact-consent" aria-required="true">
+          <input type="checkbox" name="contact-consent" id="contact-consent" required aria-required="true">
           <img src="assets/images/icon-checkbox-check.svg" alt="Icon radio selected" class="checkbox-selected">
           <label for="contact-consent" class="contact-consent-label">I consent to being contacted by the team. <p class="required">*</p></label>
         </div>
         <p class="error-message">To consent to this form, please consent to being contacted</p>
       </div>
       
-      <input type="button" value="Submit" id="submit-form">
+      <input type="submit" value="Submit">
     </form>
   </div>
 
@@ -95,7 +95,5 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Kylan Duncan</a>.
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

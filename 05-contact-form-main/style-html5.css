@@ -54,22 +54,13 @@ div.success {
     border-radius: 16px;
     padding: 16px;
     width: fit-content;
-    height: 0px;
+    height: 100px;
 
     background-color: var(--neutral-dark-grey);
     color: var(--neutral-white);
 
     position: relative;
     opacity: 0;
-
-    transition-property: opacity, height;
-    transition-duration: 0.5s;
-}
-
-div.success.submitted {
-    height: 100px;
-    margin-bottom: 16px;
-    opacity: 1;
 }
 
 div.success div.success-header {
@@ -245,7 +236,7 @@ textarea:focus-visible {
     outline-color: var(--primary-med-green);
 }
 
-input[type="button"] {
+input[type="submit"] {
     width: 100%;
     padding: 8px;
     border: 1px solid gray;
@@ -266,7 +257,7 @@ input[type="button"] {
     transition-duration: 0.2s;
 }
 
-input[type="button"]:hover {
+input[type="submit"]:hover {
     /* opacity: 0.7; */
     transform: scale(1.02);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -282,28 +273,6 @@ p.error-message {
     margin-top: 8px;
     color: var(--primary-red);
 }
-
-/* Error Styles */
-
-div.first-name.error input,
-div.last-name.error input,
-div.email.error input,
-div.message.error textarea
-{
-    border-color: var(--primary-red);
-}
-
-div.first-name.error p.error-message,
-div.last-name.error p.error-message,
-div.email.error p.error-message,
-div.query-type.error p.error-message,
-div.message.error p.error-message,
-div.contact-consent-container.error p.error-message
-{
-    display: block;
-}
-
-/* Media Queries */
 
 @media (max-width: 480px) {
     body {
