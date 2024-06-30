@@ -1,0 +1,278 @@
+/**************/
+/* PAGE SETUP */
+
+:root {
+    /* Primary colors */
+    --mod-blue: hsl(238, 40%, 52%);
+    --soft-red: hsl(358, 79%, 66%);
+    --light-gray-blue: hsl(239, 57%, 85%);
+    --pale-red: hsl(357, 100%, 86%);
+
+    /* Neutral colors */
+    --dark-blue: hsl(212, 24%, 26%);
+    --gray-blue: hsl(211, 10%, 45%);
+    --light-gray: hsl(223, 19%, 93%);
+    --very-light-gray: hsl(228, 33%, 97%);
+    --white: White: hsl(0, 0%, 100%);
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* For layout assistance */
+div {
+    border: 1px solid red;
+}
+
+/*******************/
+/* DOCUMENT STYLES */
+
+body {
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 800px;
+    margin-bottom: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Comment containers */
+div.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Regular comment */
+div.comment {
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+}
+
+div.comment div.main-content {
+    flex-grow: 1;
+}
+
+div.rating-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.rating {
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    border-color: blue;
+    height: fit-content;
+}
+
+div.rating-container button.reply,
+div.rating-container div.options {
+    display: none;
+}
+
+/* Regular comment main content */
+div.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+div.user-info {
+    display: flex;
+    align-items: center;
+}
+
+div.user-info img {
+    width: 32px;
+    height: 32px;
+
+    margin-right: 8px;
+}
+
+div.user-info h2 {
+    margin-right: 8px;
+}
+
+div.user-info div.you {
+    padding: 2px;
+    margin-right: 8px;
+
+    display: none;
+}
+
+/* Create comment */
+div.create-comment {
+    padding: 16px;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    margin-top: 16px;
+}
+
+div.create-comment img {
+    width: 40px;
+    height: 40px;
+}
+
+div.create-comment textarea,
+div.comment.me textarea {
+    padding: 8px;
+    flex-grow: 1;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+div.create-comment button.submit {
+    padding: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+
+div.create-comment div.mobile-footer {
+    display: none;
+    width: 100%;
+}
+
+/* Comment replies */
+div.comment-replies {
+    display: flex;
+}
+
+div.sidebar {
+    flex-basis: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.sidebar div.reply-line {
+    border: 1px solid gray;
+    width: 0px;
+    height: 100%;
+}
+
+/* Your comment */
+div.comment.me div.you {
+    display: initial
+}
+
+div.comment.me textarea {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+div.comment.me button.update {
+    padding: 12px;
+    float: right;
+}
+
+div.comment.me div.main-content > p,
+div.comment.me.edit textarea,
+div.comment.me.edit button.update  
+{
+    display: initial;
+}
+
+div.comment.me.edit div.main-content > p,
+div.comment.me textarea,
+div.comment.me button.update 
+{
+    display: none;
+}
+
+div.main-content div.header div.options {
+    display: flex;
+    gap: 16px;
+}
+
+/*******************/
+/* UTILITY CLASSES */
+
+/*****************/
+/* MEDIA QUERIES */
+@media (max-width: 535px) {
+    div.comment {
+        flex-direction: column-reverse;
+    }
+
+    div.rating-container {
+        flex-direction: row;
+    }
+
+    div.rating {
+        flex-direction: row;
+        width: fit-content;
+    }
+
+    div.rating-container button.reply {
+        display: initial;
+    }
+
+    div.rating-container div.options {
+        display: flex;
+        gap: 16px;
+    }
+
+    div.main-content div.header button,
+    div.main-content div.header div.options {
+        display: none;
+    }
+
+    div.create-comment {
+        flex-direction: column;
+    }
+
+    div.create-comment > img,
+    div.create-comment > button {
+        display: none;
+    }
+
+    div.create-comment textarea {
+        width: 100%;
+    }
+
+    div.create-comment div.mobile-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    div.sidebar {
+        flex-direction: row;
+    }
+}
