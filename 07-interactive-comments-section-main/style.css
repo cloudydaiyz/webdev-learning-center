@@ -13,7 +13,7 @@
     --gray-blue: hsl(211, 10%, 45%);
     --light-gray: hsl(223, 19%, 93%);
     --very-light-gray: hsl(228, 33%, 97%);
-    --white: White: hsl(0, 0%, 100%);
+    --white: hsl(0, 0%, 100%);
 
     font-family: 'Rubik', sans-serif;
     font-size: 14px;
@@ -25,10 +25,11 @@
     box-sizing: border-box;
 }
 
-/* For layout assistance */
+/* For layout assistance
 div {
     border: 1px solid red;
 }
+*/
 
 /*******************/
 /* DOCUMENT STYLES */
@@ -38,6 +39,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--very-light-gray);
 }
 
 main {
@@ -48,6 +51,8 @@ main {
 
     width: 100%;
     max-width: 800px;
+    min-height: 80vh;
+
     margin: 32px;
     margin-bottom: 16px;
 }
@@ -63,6 +68,35 @@ footer {
 
 textarea {
     resize: none;
+
+    border-radius: 8px;
+    border-color: var(--light-gray);
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: var(--gray-blue);
+}
+
+textarea:hover {
+    cursor: pointer;
+    border-color: var(--dark-blue);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--mod-blue);
+    color: var(--dark-blue);
+}
+
+button {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+
+    background-color: transparent;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 /* Comment containers */
@@ -77,6 +111,9 @@ div.comment {
     padding: 16px;
     display: flex;
     gap: 16px;
+
+    background-color: var(--white);
+    border-radius: 8px;
 }
 
 div.comment div.main-content {
@@ -98,13 +135,28 @@ div.rating {
     align-items: center;
     gap: 8px;
 
-    border-color: blue;
     height: fit-content;
+    border-radius: 8px;
+    background-color: var(--very-light-gray);
 }
 
 div.rating-container button.reply,
 div.rating-container div.options {
     display: none;
+}
+
+div.rating-container button {
+    background-color: transparent;
+    border: none;
+    color: var(--light-gray-blue);
+}
+
+div.rating-container button:hover {
+    color: var(--mod-blue);
+}
+
+div.rating-container p {
+    color: var(--mod-blue);
 }
 
 /* Regular comment main content */
@@ -128,13 +180,59 @@ div.user-info img {
 
 div.user-info h2 {
     margin-right: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-blue);
 }
 
 div.user-info div.you {
     padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
     margin-right: 8px;
 
     display: none;
+    background-color: var(--mod-blue);
+    border-radius: 4px;
+
+    color: var(--white);
+    font-size: 12px;
+}
+
+div.user-info > p {
+    font-weight: 400;
+    color: var(--gray-blue);
+}
+
+button.reply,
+button.edit
+{
+    color: var(--mod-blue);
+}
+
+button.reply:hover,
+button.edit:hover
+{
+    color: var(--light-gray-blue);
+}
+
+button.delete {
+    color: var(--soft-red);
+}
+
+button.delete:hover {
+    color: var(--pale-red);
+}
+
+div.main-content > p {
+    font-weight: 400;
+    color: var(--gray-blue);
+}
+
+div.main-content > p span {
+    font-weight: 700;
+    color: var(--mod-blue);
 }
 
 /* Create comment */
@@ -147,6 +245,9 @@ div.create-comment {
     gap: 16px;
 
     margin-top: 16px;
+
+    background-color: var(--white);
+    border-radius: 8px;
 }
 
 div.create-comment img {
@@ -158,18 +259,24 @@ div.create-comment textarea,
 div.comment.me textarea {
     padding: 8px;
     flex-grow: 1;
-
-    font-family: 'Rubik', sans-serif;
-    font-size: 14px;
 }
 
-div.create-comment button.submit {
+div.create-comment button.submit,
+div.comment.me button.update 
+{
     padding: 12px;
     padding-left: 24px;
     padding-right: 24px;
 
-    font-family: 'Rubik', sans-serif;
-    font-size: 14px;
+    background-color: var(--mod-blue);
+    border-radius: 8px;
+    color: var(--white);
+}
+
+div.create-comment button.submit:hover,
+div.comment.me button.update:hover
+{
+    background-color: var(--light-gray-blue);
 }
 
 div.create-comment div.mobile-footer {
@@ -191,7 +298,7 @@ div.sidebar {
 }
 
 div.sidebar div.reply-line {
-    border: 1px solid gray;
+    border: 1px solid var(--light-gray);
     width: 0px;
     height: 100%;
     margin-right: 8px;
@@ -292,6 +399,10 @@ div.delete-comment-modal div.modal-options button {
     justify-content: center;
     align-items: flex-start;
     gap: 8px;
+}
+
+.links-container a {
+    text-decoration: none;
 }
 
 .attribution {
