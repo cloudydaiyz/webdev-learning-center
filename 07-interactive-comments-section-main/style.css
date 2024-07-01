@@ -34,8 +34,6 @@ div {
 /* DOCUMENT STYLES */
 
 body {
-    padding: 32px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,8 +46,19 @@ main {
     justify-content: center;
     align-items: center;
 
+    width: 100%;
     max-width: 800px;
+    margin: 32px;
     margin-bottom: 16px;
+}
+
+footer {
+    border: 1px solid blue;
+    width: 100%;
+    min-height: 200px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 textarea {
@@ -185,6 +194,7 @@ div.sidebar div.reply-line {
     border: 1px solid gray;
     width: 0px;
     height: 100%;
+    margin-right: 8px;
 }
 
 /* Your comment */
@@ -221,12 +231,85 @@ div.main-content div.header div.options {
     gap: 16px;
 }
 
+/* Delete comment modal */
+div.delete-comment-modal {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.delete-comment-modal.visible {
+    display: initial;
+}
+
+div.delete-comment-modal div.content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 400px;
+    width: 100%;
+    padding: 16px;
+
+    background-color: white;
+}
+
+div.delete-comment-modal h2 {
+    padding-bottom: 16px;
+}
+
+div.delete-comment-modal p {
+    padding-bottom: 16px;
+}
+
+div.delete-comment-modal div.modal-options {
+    display: flex;
+    gap: 16px;
+}
+
+div.delete-comment-modal div.modal-options button {
+    flex-grow: 1;
+    padding: 12px;
+}
+
+/* Footer styles */
+.links {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.attribution {
+    /* font-size: 11px;  */
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
 /*******************/
 /* UTILITY CLASSES */
 
 /*****************/
 /* MEDIA QUERIES */
-@media (max-width: 535px) {
+@media (max-width: 670px) {
     div.comment {
         flex-direction: column-reverse;
     }
