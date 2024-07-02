@@ -7,9 +7,18 @@ interface iComment {
     user: User;
 
     // state
-    editing: boolean;
     upvoted: boolean;
     downvoted: boolean;
+}
+
+type User = {
+    image: ImageOptions;
+    username: string;
+}
+
+type ImageOptions = {
+    png: string;
+    webp: string;
 }
 
 interface InteractiveComment extends iComment {
@@ -28,18 +37,9 @@ interface InteractiveReply extends iComment {
 
     // id of the comment its replying to
     replyingTo: number;
+    editing: boolean;
 }
 
 function isInteractiveReply(comment: iComment): comment is InteractiveReply  {
     return comment.commentType == 'reply';
-}
-
-type User = {
-    image: ImageOptions;
-    username: string;
-}
-
-type ImageOptions = {
-    png: string;
-    webp: string;
 }

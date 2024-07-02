@@ -1,20 +1,34 @@
 const commentsContainer = document.querySelector('div.comments');
 const deleteCommentModal = document.querySelector('div.delete-comment-modal');
+const cancelDeleteModal = document.querySelector('div.modal-options button.no');
+const confirmDeleteModal = document.querySelector('div.modal-options button.yes');
 const nbsp = String.fromCharCode(160); // &nbsp;
 
+// bindEditCommentEvent - rerender to update editing property
+// bindUpdateCommentEvent - rerender the comments after editing
+// bindDeleteCommentEvent - rerender after removing the comment from the list
+// initiateReplyEvent - create new reply after previous comment and rerender
+type NewCommentBindings = {
+    updateCommentEvent?: (commentId: number, reply: string) => void;
+    deleteCommentEvent?: (commentId: number) => void;
+    likeCommentEvent?: (commentId: number) => void;
+    dislikeCommentEvent?: (commentId: number) => void;
+    initiateReplyEvent?: (user: User, replyingTo: number) => void;
+};
+
+// Creates a view for a comment / reply
+// enclosingContainer: container to put the new comment in, defaults to the commentsContainer
+// isCurrentUser: true if the current user is making the comment
 // comment: information about the new comment
 function newCommentView(
-    enclosingContainer: Element, 
+    comment: iComment,
+    bindings: NewCommentBindings,
     isCurrentUser: boolean,
-    comment: iComment) {
+    enclosingContainer: Element,
+    replyingTo?: string) {
+        
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment');
-
-    if(enclosingContainer) {
-        enclosingContainer.appendChild(commentDiv);
-    } else {
-        commentsContainer?.appendChild(commentDiv);
-    }
 
     /* Rating container */
     const ratingContainer = document.createElement('div');
@@ -154,7 +168,40 @@ function newCommentView(
         updateButton.classList.add('update');
         updateButton.appendChild(updateButtonText);
         mainContent.appendChild(updateButton);
+
+        // Bind events
+        const editButtonEvent = () => {
+            textArea.value = mainContentP.innerText;
+            commentDiv.classList.toggle('edit');
+        } 
+        editButton1.addEventListener('click', editButtonEvent);
+        editButton2.addEventListener('click', editButtonEvent);
+
+        const deleteButtonEvent = () => {
+            deleteCommentModal?.classList.add('visible');
+        }
+        deleteButton1.addEventListener('click', deleteButtonEvent);
+        deleteButton2.addEventListener('click', deleteButtonEvent);
+
+        cancelDeleteModal?.addEventListener('click', () => {
+            deleteCommentModal?.classList.remove('visible');
+        });
+
+        confirmDeleteModal?.addEventListener('click', () => {
+            if(bindings.deleteCommentEvent == undefined) {
+                throw Error('Undefined deleteCommentEvent binding');
+            }
+            bindings.deleteCommentEvent(comment.id);
+        });
+
+        updateButton.addEventListener('click', () => {
+            if(bindings.updateCommentEvent == undefined) {
+                throw Error('Undefined updateCommentEvent binding');
+            }
+            bindings.updateCommentEvent(comment.id, textArea.value);
+        });
     } else {
+        
         /* Reply buttons */
         const replyButton1 = document.createElement('button');
         const replyButton1Text = document.createTextNode(nbsp + nbsp + 'Reply');
@@ -175,41 +222,70 @@ function newCommentView(
         replyIcon2.classList.add('fa-solid', 'fa-reply');
         replyButton2.appendChild(replyIcon2);
         replyButton2.appendChild(replyButton2Text);
+
+        // Bind events
+        const replyButtonEvent = () => {
+            if(bindings.initiateReplyEvent == undefined) {
+                throw Error('Undefined initiateReplyEvent binding');
+            }
+            bindings.initiateReplyEvent(comment.user, comment.id);
+        }
+        replyButton1.addEventListener('click', replyButtonEvent);
+        replyButton2.addEventListener('click', replyButtonEvent);
+
+        upvoteButton.addEventListener('click', () => {
+            if(bindings.likeCommentEvent == undefined) {
+                throw Error('Undefined likeCommentEvent binding');
+            }
+            bindings.likeCommentEvent(comment.id);
+        });
+
+        downvoteButton.addEventListener('click', () => {
+            if(bindings.dislikeCommentEvent == undefined) {
+                throw Error('Undefined dislikeCommentEvent binding');
+            }
+            bindings.dislikeCommentEvent(comment.id);
+        });
     }
 
+    // If this is a reply, add the @ mention
     if(isInteractiveReply(comment)) {
         const replyToSpan = document.createElement('span');
-        const replyToSpanText = document.createTextNode(`@${comment.replyingTo}${nbsp}`);
+        const replyToSpanText = document.createTextNode(`@${replyingTo}${nbsp}`);
         replyToSpan.appendChild(replyToSpanText);
         mainContentP.insertBefore(replyToSpan, mainContentPText);    
     }
 
-    // bindEditCommentEvent - rerender to update editing property
-    // bindUpdateCommentEvent - rerender the comments after editing
-    // bindDeleteCommentEvent - rerender after removing the comment from the list
+    // If everything was successful, append the comment div to the enclosing container
+    enclosingContainer.appendChild(commentDiv);
 }
 
-// enclosingContainer: container to put the new reply in
-function newCreateReplyView(enclosingContainer: Element, user: User) {
+// submitReplyEvent - move new reply to the end of the thread (or sort the replies by date) and rerender
+type NewCreateReplyBindings = {
+    submitReplyEvent?: (replyId: number, reply: string) => void;
+}
+
+// Makes a new "create reply" prompt
+// enclosingContainer: container to put the new reply in, defaults to the commentsContainer
+// user: the (current) user that's making the reply
+// insertBefore: the element to insert before (if any)
+function newCreateReplyView(
+    reply: InteractiveReply,
+    bindings: NewCreateReplyBindings,
+    enclosingContainer: Element) {
     const replyContainer = document.createElement('div');
     replyContainer.classList.add('create-comment', 'reply');
 
-    if(enclosingContainer) {
-        enclosingContainer.appendChild(replyContainer);
-    } else {
-        commentsContainer?.appendChild(replyContainer);
-    }
-
     const profilePic1 = document.createElement('img');
-    profilePic1.src = user.image.png;
-    profilePic1.alt = user.username + ' profile picture';
+    profilePic1.src = reply.user.image.png;
+    profilePic1.alt = reply.user.username + ' profile picture';
     replyContainer.appendChild(profilePic1);
 
-    const textArea1 = document.createElement('textarea');
-    const textAreaText1 = document.createTextNode('Add reply...');
-    textArea1.rows = 5;
-    textArea1.appendChild(textAreaText1);
-    replyContainer.appendChild(textArea1);
+    const textArea = document.createElement('textarea');
+    const textAreaText = document.createTextNode('Add reply...');
+    textArea.rows = 5;
+    textArea.appendChild(textAreaText);
+    replyContainer.appendChild(textArea);
 
     const submitBtn1 = document.createElement('button');
     const submitBtnText1 = document.createTextNode('REPLY');
@@ -223,8 +299,8 @@ function newCreateReplyView(enclosingContainer: Element, user: User) {
     replyContainer.appendChild(mobileFooter);
 
     const profilePic2 = document.createElement('img');
-    profilePic2.src = user.image.png;
-    profilePic2.alt = user.username + ' profile picture';
+    profilePic2.src = reply.user.image.png;
+    profilePic2.alt = reply.user.username + ' profile picture';
     mobileFooter.appendChild(profilePic2);
 
     const submitBtn2 = document.createElement('button');
@@ -232,6 +308,19 @@ function newCreateReplyView(enclosingContainer: Element, user: User) {
     submitBtn2.classList.add('submit');
     submitBtn2.appendChild(submitBtnText2);
     mobileFooter.appendChild(submitBtn2);
+
+    // Bind events
+    const submitButtonEvent = () => {
+        if(bindings.submitReplyEvent == undefined) {
+            throw Error('Undefined dislikeCommentEvent binding');
+        }
+        bindings.submitReplyEvent(reply.id, textArea.value);
+    }
+    submitBtn1.addEventListener('click', submitButtonEvent);
+    submitBtn2.addEventListener('click', submitButtonEvent);
+
+    // If everything was successful, append the reply to the enclosing container
+    enclosingContainer.appendChild(replyContainer);
 }
 
 // Creates a new thread and returns the new comments container
@@ -255,7 +344,10 @@ function newThreadView() {
     return comments;
 }
 
-function render(comments: InteractiveComment[], currentUser: User) {
+// Re-renders the entire comments container
+// comments: the list of all comments and their replies
+// currentUser: self-explanatory
+function render(comments: iComment[], currentUser: User) {
     if(commentsContainer == null) {
         throw new Error('No comments container detected.');
     }
@@ -265,21 +357,31 @@ function render(comments: InteractiveComment[], currentUser: User) {
 
     // Go through each of the comments and create their respective views
     for(const comment of comments) {
-        newCommentView(
-            commentsContainer,
-            comment.user == currentUser,
-            comment
-        );
+        if(isInteractiveReply(comment) && comment.editing) {
+            newCreateReplyView(
+                comment,
+                {},
+                commentsContainer
+            );
+        } else {
+            newCommentView(
+                comment,
+                {},
+                comment.user == currentUser,
+                commentsContainer
+            );
 
-        // If there are replies, create a new thread and replies views
-        if(comment.replies.length > 0) {
-            const thread = newThreadView();
-            for(const reply of comment.replies) {
-                newCommentView(
-                    thread,
-                    reply.user == currentUser,
-                    reply
-                );
+            // If there are replies, create a new thread and replies views
+            if(isInteractiveComment(comment) && comment.replies.length > 0) {
+                const thread = newThreadView();
+                for(const reply of comment.replies) {
+                    newCommentView(
+                        reply,
+                        {},
+                        reply.user == currentUser,
+                        thread,
+                    );
+                }
             }
         }
     }
