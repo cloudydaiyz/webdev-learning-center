@@ -53,17 +53,19 @@ main {
     max-width: 800px;
     min-height: 80vh;
 
-    margin: 32px;
-    margin-bottom: 16px;
+    padding: 32px;
+    padding-bottom: 16px;
 }
 
 footer {
-    border: 1px solid blue;
     width: 100%;
-    min-height: 200px;
+    min-height: 300px;
+    margin-top: 108px;
 
     display: flex;
     flex-direction: column;
+
+    background-color: var(--dark-blue);
 }
 
 textarea {
@@ -74,6 +76,8 @@ textarea {
     font-family: 'Rubik', sans-serif;
     font-size: 14px;
     color: var(--gray-blue);
+
+    line-height: 150%;
 }
 
 textarea:hover {
@@ -93,10 +97,28 @@ button {
 
     background-color: transparent;
     border: none;
+
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
 }
 
 button:hover {
     cursor: pointer;
+}
+
+p {
+    line-height: 150%;
+}
+
+footer a,
+footer a:visited 
+{
+    text-decoration: none;
+    color: var(--gray-blue);
+}
+
+footer a:hover {
+    color: var(--white);
 }
 
 /* Comment containers */
@@ -104,6 +126,8 @@ div.comments {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    width: 100%;
 }
 
 /* Regular comment */
@@ -145,14 +169,21 @@ div.rating-container div.options {
     display: none;
 }
 
-div.rating-container button {
+div.rating button {
     background-color: transparent;
     border: none;
     color: var(--light-gray-blue);
 }
 
-div.rating-container button:hover {
+div.rating button:hover {
     color: var(--mod-blue);
+}
+
+div.comment.me div.rating button,
+div.comment.me div.rating button:hover
+{
+    color: var(--light-gray);
+    cursor: default;
 }
 
 div.rating-container p {
@@ -184,6 +215,7 @@ div.user-info h2 {
     font-size: 14px;
     font-weight: 700;
     color: var(--dark-blue);
+    line-height: 100%;
 }
 
 div.user-info div.you {
@@ -203,6 +235,7 @@ div.user-info div.you {
 div.user-info > p {
     font-weight: 400;
     color: var(--gray-blue);
+    line-height: 100%;
 }
 
 button.reply,
@@ -250,6 +283,10 @@ div.create-comment {
     border-radius: 8px;
 }
 
+div.create-comment.reply {
+    margin-top: 0px;
+}
+
 div.create-comment img {
     width: 40px;
     height: 40px;
@@ -290,7 +327,7 @@ div.comment-replies {
 }
 
 div.sidebar {
-    flex-basis: 200px;
+    flex-basis: 20%;
 
     display: flex;
     flex-direction: column;
@@ -359,19 +396,24 @@ div.delete-comment-modal div.content {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
     padding: 16px;
 
     background-color: white;
+    border-radius: 8px;
 }
 
 div.delete-comment-modal h2 {
     padding-bottom: 16px;
+    color: var(--dark-blue);
+    font-weight: 700;
 }
 
 div.delete-comment-modal p {
     padding-bottom: 16px;
+    color: var(--gray-blue);
+    font-weight: 400;
 }
 
 div.delete-comment-modal div.modal-options {
@@ -382,6 +424,26 @@ div.delete-comment-modal div.modal-options {
 div.delete-comment-modal div.modal-options button {
     flex-grow: 1;
     padding: 12px;
+    border-radius: 8px;
+
+    color: var(--white);
+    font-weight: 400;
+}
+
+div.delete-comment-modal div.modal-options button.no {
+    background-color: var(--gray-blue);
+}
+
+div.delete-comment-modal div.modal-options button.no:hover {
+    opacity: 0.7;
+}
+
+div.delete-comment-modal div.modal-options button.yes {
+    background-color: var(--soft-red);
+}
+
+div.delete-comment-modal div.modal-options button.yes:hover {
+    background-color: var(--pale-red);
 }
 
 /* Footer styles */
@@ -401,18 +463,13 @@ div.delete-comment-modal div.modal-options button {
     gap: 8px;
 }
 
-.links-container a {
-    text-decoration: none;
+.links-container h3 {
+    color: var(--white);
 }
 
 .attribution {
-    /* font-size: 11px;  */
     text-align: center;
     margin-bottom: 16px;
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
 }
 
 /*******************/

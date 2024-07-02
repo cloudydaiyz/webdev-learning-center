@@ -1,7 +1,0 @@
-function createComment() {
-
-}
-
-function createReply() {
-    
-}

@@ -14,20 +14,23 @@
   
   <title>Interactive comments section</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="delete-comment-modal">
+    <div class="content">
+      <h2>Delete comment</h2>
+      <p>Are you sure you want to delete this comment? This will remove the comment and can't be undone.</p>
+      <div class="modal-options">
+        <button class="no">NO, CANCEL</button>
+        <button class="yes">YES, DELETE</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Pull dynamic content from the data.json file -->
   <main>
     <div class="comments">
-      
+           
     </div>
 
     <div class="create-comment">
@@ -53,5 +56,7 @@
       Coded by <a href="https://github.com/cloudydaiyz">Kylan Duncan</a>.
     </div>
   </footer>
+
+  <script src="javascript/view.js"></script>
 </body>
 </html>
