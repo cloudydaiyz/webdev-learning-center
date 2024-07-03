@@ -236,7 +236,7 @@ const bootstrapBindings: BootstrapBindings = {
         rerender();
     },
 
-    addCommentEvent(comment) {
+    addCommentEvent: function (comment) {
         const newComment: InteractiveComment = {
             id: -1,
             commentType: 'comment',
