@@ -175,8 +175,15 @@ div.rating button {
     color: var(--light-gray-blue);
 }
 
-div.rating button:hover {
+div.rating button:hover 
+{
     color: var(--mod-blue);
+}
+
+div.comment.upvoted div.rating button.upvote,
+div.comment.downvoted div.rating button.downvote {
+    color: var(--mod-blue);
+    cursor: default;
 }
 
 div.comment.me div.rating button,

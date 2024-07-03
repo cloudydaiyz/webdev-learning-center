@@ -1,8 +1,19 @@
 const commentsContainer = document.querySelector('div.comments');
 const deleteCommentModal = document.querySelector('div.delete-comment-modal');
-const cancelDeleteModal = document.querySelector('div.modal-options button.no');
-const confirmDeleteModal = document.querySelector('div.modal-options button.yes');
+const cancelDeleteModalBtn = document.querySelector('div.modal-options button.no');
+const confirmDeleteModalBtn = document.querySelector('div.modal-options button.yes');
+
+// Being more specific with these query selectors for the typing
+const newComment = document.querySelector('#newcomment');
+const addNewCommentInput = newComment?.querySelector('textarea');
+const addNewCommentBtn1 = newComment?.querySelector('button');
+const newCommentMobileFooter = newComment?.querySelector('.mobile-footer');
+const addNewCommentBtn2 = newCommentMobileFooter?.querySelector('button');
+
 const nbsp = String.fromCharCode(160); // &nbsp;
+
+// global vars
+let commentToDelete = -1;
 
 // bindEditCommentEvent - rerender to update editing property
 // bindUpdateCommentEvent - rerender the comments after editing
@@ -10,16 +21,17 @@ const nbsp = String.fromCharCode(160); // &nbsp;
 // initiateReplyEvent - create new reply after previous comment and rerender
 type NewCommentBindings = {
     updateCommentEvent?: (commentId: number, reply: string) => void;
-    deleteCommentEvent?: (commentId: number) => void;
     likeCommentEvent?: (commentId: number) => void;
     dislikeCommentEvent?: (commentId: number) => void;
-    initiateReplyEvent?: (user: User, replyingTo: number) => void;
+    initiateReplyEvent?: (replyingTo: number) => void;
 };
 
 // Creates a view for a comment / reply
-// enclosingContainer: container to put the new comment in, defaults to the commentsContainer
-// isCurrentUser: true if the current user is making the comment
 // comment: information about the new comment
+// bindings: the event bindings for each of the buttons
+// isCurrentUser: true if the current user is making the comment
+// enclosingContainer: container to put the new comment in, defaults to the commentsContainer
+// replyingTo: the name of the user they're replying to (if applicable)
 function newCommentView(
     comment: iComment,
     bindings: NewCommentBindings,
@@ -48,7 +60,7 @@ function newCommentView(
     upvoteButton.appendChild(plusIcon);
 
     const ratingP = document.createElement('p');
-    const ratingPText = document.createTextNode('2');
+    const ratingPText = document.createTextNode(`${comment.score}`);
     ratingP.appendChild(ratingPText);
     ratingDiv.appendChild(ratingP);
 
@@ -171,27 +183,22 @@ function newCommentView(
 
         // Bind events
         const editButtonEvent = () => {
-            textArea.value = mainContentP.innerText;
+            textArea.value = mainContentP.childNodes[1].nodeValue 
+                ? mainContentP.childNodes[1].nodeValue : '';
             commentDiv.classList.toggle('edit');
         } 
         editButton1.addEventListener('click', editButtonEvent);
         editButton2.addEventListener('click', editButtonEvent);
 
         const deleteButtonEvent = () => {
+            commentToDelete = comment.id;
             deleteCommentModal?.classList.add('visible');
         }
         deleteButton1.addEventListener('click', deleteButtonEvent);
         deleteButton2.addEventListener('click', deleteButtonEvent);
 
-        cancelDeleteModal?.addEventListener('click', () => {
+        cancelDeleteModalBtn?.addEventListener('click', () => {
             deleteCommentModal?.classList.remove('visible');
-        });
-
-        confirmDeleteModal?.addEventListener('click', () => {
-            if(bindings.deleteCommentEvent == undefined) {
-                throw Error('Undefined deleteCommentEvent binding');
-            }
-            bindings.deleteCommentEvent(comment.id);
         });
 
         updateButton.addEventListener('click', () => {
@@ -201,6 +208,11 @@ function newCommentView(
             bindings.updateCommentEvent(comment.id, textArea.value);
         });
     } else {
+        if(comment.upvoted) {
+            commentDiv.classList.add('upvoted');
+        } else if(comment.downvoted) {
+            commentDiv.classList.add('downvoted');
+        }
         
         /* Reply buttons */
         const replyButton1 = document.createElement('button');
@@ -228,7 +240,7 @@ function newCommentView(
             if(bindings.initiateReplyEvent == undefined) {
                 throw Error('Undefined initiateReplyEvent binding');
             }
-            bindings.initiateReplyEvent(comment.user, comment.id);
+            bindings.initiateReplyEvent(comment.id);
         }
         replyButton1.addEventListener('click', replyButtonEvent);
         replyButton2.addEventListener('click', replyButtonEvent);
@@ -262,13 +274,13 @@ function newCommentView(
 
 // submitReplyEvent - move new reply to the end of the thread (or sort the replies by date) and rerender
 type NewCreateReplyBindings = {
-    submitReplyEvent?: (replyId: number, reply: string) => void;
+    submitReplyEvent: (replyId: number, reply: string) => void;
 }
 
 // Makes a new "create reply" prompt
+// reply: the information for the reply
+// bindings: the event bindings for each of the buttons
 // enclosingContainer: container to put the new reply in, defaults to the commentsContainer
-// user: the (current) user that's making the reply
-// insertBefore: the element to insert before (if any)
 function newCreateReplyView(
     reply: InteractiveReply,
     bindings: NewCreateReplyBindings,
@@ -282,9 +294,8 @@ function newCreateReplyView(
     replyContainer.appendChild(profilePic1);
 
     const textArea = document.createElement('textarea');
-    const textAreaText = document.createTextNode('Add reply...');
+    textArea.value = reply.content;
     textArea.rows = 5;
-    textArea.appendChild(textAreaText);
     replyContainer.appendChild(textArea);
 
     const submitBtn1 = document.createElement('button');
@@ -311,9 +322,6 @@ function newCreateReplyView(
 
     // Bind events
     const submitButtonEvent = () => {
-        if(bindings.submitReplyEvent == undefined) {
-            throw Error('Undefined dislikeCommentEvent binding');
-        }
         bindings.submitReplyEvent(reply.id, textArea.value);
     }
     submitBtn1.addEventListener('click', submitButtonEvent);
@@ -344,10 +352,48 @@ function newThreadView() {
     return comments;
 }
 
+type BootstrapBindings = {
+    deleteCommentEvent?: (commentId: number) => void;
+    addCommentEvent?: (comment: string) => void;
+}
+
+function bootstrap(bindings: BootstrapBindings) {
+    // Add event listeners for elements that don't get created by render
+    confirmDeleteModalBtn?.addEventListener('click', () => {
+        if(bindings.deleteCommentEvent == undefined) {
+            throw Error('Undefined deleteCommentEvent binding');
+        }
+        if(commentToDelete == -1) {
+            console.log('Invalid state, no comment to delete');
+        }
+
+        deleteCommentModal?.classList.remove('visible');
+        bindings.deleteCommentEvent(commentToDelete);
+        commentToDelete = -1;
+    });
+
+    const addCommentEvent = () => {
+        if(bindings.addCommentEvent == undefined) {
+            throw Error('Undefined addCommentEvent binding');
+        }
+        if(addNewCommentInput == undefined) {
+            throw Error("Can't find the add new comment input");
+        }
+
+        bindings.addCommentEvent(addNewCommentInput.value);
+    }
+    addNewCommentBtn1?.addEventListener('click', addCommentEvent);
+    addNewCommentBtn2?.addEventListener('click', addCommentEvent);
+}
+
 // Re-renders the entire comments container
 // comments: the list of all comments and their replies
 // currentUser: self-explanatory
-function render(comments: iComment[], currentUser: User) {
+function render(
+    comments: InteractiveComment[], 
+    currentUser: User, 
+    commentBindings: NewCommentBindings, 
+    createReplyBindings: NewCreateReplyBindings) {
     if(commentsContainer == null) {
         throw new Error('No comments container detected.');
     }
@@ -357,29 +403,36 @@ function render(comments: iComment[], currentUser: User) {
 
     // Go through each of the comments and create their respective views
     for(const comment of comments) {
-        if(isInteractiveReply(comment) && comment.editing) {
-            newCreateReplyView(
-                comment,
-                {},
-                commentsContainer
-            );
-        } else {
-            newCommentView(
-                comment,
-                {},
-                comment.user == currentUser,
-                commentsContainer
-            );
+        newCommentView(
+            comment,
+            commentBindings,
+            comment.user.username == currentUser.username,
+            commentsContainer
+        );
 
-            // If there are replies, create a new thread and replies views
-            if(isInteractiveComment(comment) && comment.replies.length > 0) {
-                const thread = newThreadView();
-                for(const reply of comment.replies) {
+        // If there are replies, create a new thread and replies views
+        if(comment.replies.length > 0) {
+            const thread = newThreadView();
+            const threadAuthor = comment.user.username;
+            for(const reply of comment.replies) {
+                if (reply.editing) {
+                    newCreateReplyView(
+                        reply,
+                        createReplyBindings,
+                        thread
+                    );
+                } else {
+                    const replyingTo = findComment(reply.replyingTo);
+                    if(replyingTo == undefined) {
+                        throw new Error('Invalid reply, no replying to');
+                    }
+
                     newCommentView(
                         reply,
-                        {},
-                        reply.user == currentUser,
+                        commentBindings,
+                        reply.user.username == currentUser.username,
                         thread,
+                        replyingTo[0].user.username
                     );
                 }
             }
