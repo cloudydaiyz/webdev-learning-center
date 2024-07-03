@@ -11,10 +11,322 @@
     /* Neutral colors */
     --very-dark-blue: hsl(226, 43%, 10%);
     --dark-blue: hsl(235, 46%, 20%);
+    --less-dark-blue: hsl(236, 45%, 40%);
     --desaturated-blue: hsl(235, 45%, 61%);
     --pale-blue: hsl(236, 100%, 87%);
+    --white: #EAEAEA;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    color: var(--white);
 }
 
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* min-height: fit-content; */
+    height: 100vh;
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    background-color: var(--very-dark-blue);
+}
+
+main {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
 div {
     border: 1px solid red;
+}
+*/
+
+div.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 16px;
+    width: 1000px;
+
+    min-height: fit-content;
+}
+
+div.dashboard > div {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+div.profile {
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    background-color: var(--dark-blue);
+    border-radius: 16px;
+}
+
+div.person-info {
+    padding: 24px;
+    height: 65%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    background-color: var(--blue);
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+div.person-info img {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+}
+
+div.person-info h2 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 8px;
+    color: var(--pale-blue);
+}
+
+div.person-info h1 {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+div.frequency {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px;
+}
+
+div.frequency button
+{
+    border: none;
+    background-color: transparent;
+
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+}
+
+div.frequency button.unselected {
+    color: var(--desaturated-blue);
+}
+
+div.frequency button.unselected:hover {
+    color: var(--pale-blue);
+    cursor: pointer;
+}
+
+div.frequency button.unselected:active, 
+div.frequency button.selected
+{
+    color: var(--white);
+}
+
+div.timecard {
+    background-color: transparent;
+    border-radius: 16px;
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+div.timecard-filler {
+    height: 32px;
+    padding: 0px;
+}
+
+div.filler-space {
+    width: 100%;
+    height: 200%;
+    z-index: 1;
+
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+div.timecard.work div.filler-space {
+    background-color: var(--light-red-1);
+}
+
+div.timecard.play div.filler-space {
+    background-color: var(--soft-blue);
+}
+
+div.timecard.study div.filler-space {
+    background-color: var(--light-red-2);
+}
+
+div.timecard.exercise div.filler-space {
+    background-color: var(--lime-green);
+}
+
+div.timecard.social div.filler-space {
+    background-color: var(--violet);
+}
+
+div.timecard.self-care div.filler-space {
+    background-color: var(--soft-orange);
+}
+
+div.filler-space img {
+    position: relative;
+    float: right;
+}
+
+div.timecard-foreground {
+    background-color: var(--dark-blue);
+    border-radius: 16px;
+    flex-grow: 1;
+    z-index: 3;
+
+    padding: 16px;
+}
+
+div.timecard-foreground:active {
+    background-color: var(--less-dark-blue);
+    cursor: pointer;
+}
+
+div.timecard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px;
+}
+
+div.timecard-header h2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+div.timecard-header i {
+    color: var(--desaturated-blue);
+}
+
+div.timecard-header i:hover {
+    color: var(--pale-blue);
+}
+
+div.timecard-header i:active {
+    color: var(--white);
+}
+
+div.time {
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px;
+}
+
+div.time h1 {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+div.time p {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--pale-blue);
+}
+
+div.time span {
+    display: none;
+}
+
+div.time span.typing {
+    display: initial;
+}
+
+@media (max-width: 1075px) {
+    body {
+        height: 100%;
+    }
+
+    div.dashboard {
+        grid-template-columns: repeat(3, 1fr);
+        width: 600px;
+    }
+
+    div.profile {
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+}
+
+@media (max-width: 760px) {
+    
+    div.dashboard {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    div.profile {
+        grid-row-start: initial;
+        grid-row-end: initial;
+    }
+
+    div.person-info {
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    div.person-info h2 {
+        padding-bottom: 0px;
+    }
+
+    div.frequency {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    div.time {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div.time h1 {
+        font-size: 32px;
+        font-weight: 300;
+    }
+}
+
+@media (max-width: 400px) {
+    div.dashboard {
+        min-width: 0px;
+        width: 100%;
+    }
+}
+
+/* UTILITY CLASSES */
+.hidden {
+    display: none;
 }
